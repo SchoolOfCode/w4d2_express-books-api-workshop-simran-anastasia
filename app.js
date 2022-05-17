@@ -9,8 +9,9 @@
 
 */
 let booksData = require('./books-data.js');
-const books = booksData.books;
-console.log(books)
+
+
+
 const express = require("express");
 const app = express();
 const PORT = 3000;
@@ -20,7 +21,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/books", function (req, res) {
-  const responseObject = {success: true, data: books}
+  const responseObject = {success: true, data: booksData}
   res.json(responseObject)
 });
 
