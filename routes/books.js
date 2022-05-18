@@ -33,7 +33,7 @@ if (title) {
 const author = req.query.author;
 if(author) {
     let searchedAuthor = [];
-    for(let i = 0; i < author.length; i++) {
+    for(let i = 0; i < books.length; i++) {
         if (books[i].author.toLowerCase().includes(author.toLowerCase())){
             searchedAuthor.push(books[i])
         }
