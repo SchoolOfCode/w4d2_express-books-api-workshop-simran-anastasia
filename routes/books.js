@@ -30,10 +30,22 @@ if (title) {
     res.json(responseObject)
     return
 }
-
+const author = req.query.author;
+if(author) {
+    let searchedAuthor = [];
+    for(let i = 0; i < author.length; i++) {
+        if (books[i].author.toLowerCase().includes(author.toLowerCase())){
+            searchedAuthor.push(books[i])
+        }
+    }
+    const responseObjectAuthor = {success: true, data: searchedAuthor}
+    res.json(responseObjectAuthor)
+    return
+}
 
    const responseObject = {success: true, data: books}
    res.json(responseObject)
+
 
   });
 
