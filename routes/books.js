@@ -7,27 +7,33 @@ const books = require('../books-data.js')
 /*
 - Create a variable with a request query ✅
 - Intialize an empty array ✅
-- If statement to check if the title is truthy
-- Loop through an array comparing the title to the array (for loop)
-- If statement within the for to compare the title to the array
-  -use include method and toLowerCase method to check if the string matches title string
-  -if it does, push them to the array that we've made
+- If statement to check if the title is truthy ✅
+- Loop through an array comparing the title to the array (for loop) ✅
+- If statement within the for to compare the title to the array ✅
+  -use include method and toLowerCase method to check if the string matches title string ✅
+  -if it does, push them to the array that we've made ✅
+  - make a response object 
+  - send res.json 
 */
 
 
 router.get("/", function (req, res) {
     const title = req.query.title;
-    let searchedTitle = [];
 if (title) {
+  let searchedTitle = [];
     for (let i = 0; i < books.length; i++) {
         if (books[i].title.toLowerCase().includes(title.toLowerCase())){
          searchedTitle.push(books[i]) 
         }
  }
-    const responseObject = {success: true, data: books}
-    res.json(responseObject)   
+    const responseObject = {success: true, data: searchedTitle}
+    res.json(responseObject)
+    return
 }
 
+
+   const responseObject = {success: true, data: books}
+   res.json(responseObject)
 
   });
 
