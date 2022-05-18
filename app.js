@@ -8,9 +8,9 @@
 - Send res.json 
 
 */
-let booksData = require('./books-data.js');
+// let booksData = require('./books-data.js');
 
-
+let books = require('./routes/books.js')
 
 const express = require("express");
 const app = express();
@@ -20,10 +20,12 @@ app.get("/", function (req, res) {
   res.json({ message: "Hello from the root path!" });
 });
 
-app.get("/books", function (req, res) {
-  const responseObject = {success: true, data: booksData}
-  res.json(responseObject)
-});
+app.use('/books', books);
+
+//app.get("/books", function (req, res) {
+//   const responseObject = {success: true, data: booksData}
+//   res.json(responseObject)
+// });
 
 app.listen(PORT, function () {
   console.log(`http://localhost:${PORT}`)
