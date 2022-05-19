@@ -21,6 +21,9 @@ app.use(function (req, res, next){
   next()
 })
 
+app.use(express.json())
+
+
 app.get("/", function (req, res) {
   res.json({ message: "Hello from the root path!" });
 });

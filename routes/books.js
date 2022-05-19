@@ -66,6 +66,7 @@ router.post('/', function (req, res) {
     sucess: true,
     message: `added book ${body.title} with id ${body}`
   }
+  res.json(responseObject)
 })
 
 
