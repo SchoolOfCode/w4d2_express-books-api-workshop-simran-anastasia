@@ -57,6 +57,17 @@ if(author) {
 - use an if statement to define if book id matches param id X
 - res.json
 */
+router.post('/', function (req, res) {
+  const body = req.body; 
+  console.log(body);
+  books.push(body);
+
+  const responseObject = {
+    sucess: true,
+    message: `added book ${body.title} with id ${body}`
+  }
+})
+
 
 router.get("/:id", function (req, res) {
   const id = req.params.id 
